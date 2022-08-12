@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using FluentBlazor.Miner;
+using Microsoft.AspNetCore.Components;
 
 namespace FluentBlazor.Pages
 {
     public partial class Miner : ComponentBase
     {
-        private int currentCount = 0;
+        private Board _board = new Board(5);
 
-        private void IncrementCount()
+        public Board Board => _board;
+
+        private void NewGame()
         {
-            currentCount++;
+            _board.Init();
         }
     }
 }

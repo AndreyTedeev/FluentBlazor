@@ -4,13 +4,22 @@
 
 <h1>Miner</h1>
 
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="NewGame">New Game</button>
 
 <div class="miner-board">
-    @for (var i = 0; i < 25; i++)
+    @for (var i = 0; i < _board.Columns; i++)
     {
-        <img src="bomb.png" />
+        for (var j = 0; j < _board.Rows; j++)
+        {
+            var cell = Board[i, j];
+            if (cell.HasBomb)
+            {
+                <img src="bomb.png" />
+            }
+            else 
+            {
+                <img src="blank.png" />
+            }
+        }
     }
 </div>
