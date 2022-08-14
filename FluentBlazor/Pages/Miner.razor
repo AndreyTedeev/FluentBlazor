@@ -11,14 +11,18 @@
     {
         for (var j = 0; j < _board.Rows; j++)
         {
-            var cell = Board[i, j];
+            var cell = _board[i, j];
             if (cell.HasBomb)
             {
-                <img src="bomb.png" />
+                <FluentButton style="height: 60px">
+                    <img src="bomb.png" />
+                </FluentButton>
             }
-            else 
+            else
             {
-                <img src="blank.png" />
+                <FluentButton style="height: 60px">
+                    @cell.BombsAround
+                </FluentButton>
             }
         }
     }
